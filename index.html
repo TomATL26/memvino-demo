@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemVino - Transform Wine Memories Into Stories Worth Keeping</title>
+    <meta name="description" content="MemVino turns wine corks into interactive keepsakes. Scan QR codes to relive the moments behind every bottle.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy: #6B1F3A;
+            --gold: #D4AF37;
+            --cream: #FFF8F0;
+            --sage: #8FA18D;
+            --charcoal: #2B2B2B;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--burgundy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--burgundy);
+        }
+
+        .cta-button {
+            background: var(--burgundy);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(107, 31, 58, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--burgundy) 0%, #8B3556 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .hero-cta {
+            background: var(--gold);
+            color: var(--charcoal);
+            font-size: 1.1rem;
+        }
+
+        /* Logo Gallery */
+        .logo-section {
+            padding: 3rem 0;
+            background: white;
+            text-align: center;
+        }
+
+        .logo-section h2 {
+            font-size: 1.5rem;
+            color: var(--burgundy);
+            margin-bottom: 2rem;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .logo-card {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .logo-card h3 {
+            color: var(--burgundy);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Value Props */
+        .value-props {
+            padding: 4rem 0;
+            background: var(--cream);
+        }
+
+        .value-props h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            margin-bottom: 3rem;
+        }
+
+        .props-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .prop-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .prop-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .prop-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            margin-bottom: 3rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--burgundy);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            color: var(--burgundy);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Target Audience */
+        .audience {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--sage) 0%, #A4B8A3 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .audience h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .audience p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* B2B Section */
+        .b2b {
+            padding: 4rem 0;
+            background: var(--burgundy);
+            color: white;
+        }
+
+        .b2b h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .b2b-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .b2b p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .b2b-cta {
+            background: white;
+            color: var(--burgundy);
+            font-size: 1.1rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .pricing-card h3 {
+            color: var(--burgundy);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .steps, .props-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">MemVino</div>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#restaurants">For Restaurants</a></li>
+            </ul>
+            <a href="#" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Transform Every Wine Memory Into a Story Worth Keeping</h1>
+            <p>MemVino turns wine corks into interactive keepsakes. Scan, relive, and share the moments behind every bottle with our elegant QR-enabled thumbtacks.</p>
+            <a href="#pricing" class="cta-button hero-cta">Start Preserving Your Wine Memories Today</a>
+        </div>
+    </section>
+
+    <section class="logo-section">
+        <div class="container">
+            <h2>Brand Identity Concepts</h2>
+            <div class="logo-grid">
+                <div class="logo-card">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/749e57dcd06c1ab37cbce4536144d649?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T150702Z&X-Amz-Expires=3600&X-Amz-Signature=8ee82492d706aa1ac8b9642fcbd64d27c499f4f74b21326177557d63443cf4ab&X-Amz-SignedHeaders=host" alt="Classic Elegant Logo">
+                    <h3>Classic Elegant</h3>
+                    <p>Sophisticated wine aesthetic</p>
+                </div>
+                <div class="logo-card">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/5188f86fc21d3900339f1d810cd9a3ac?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T150701Z&X-Amz-Expires=3600&X-Amz-Signature=f426267be3a5a09bf59e7046dd3cb0179a878fb63b1ea1c09fc04991266b238d&X-Amz-SignedHeaders=host" alt="Modern Playful Logo">
+                    <h3>Modern Playful</h3>
+                    <p>Approachable lifestyle brand</p>
+                </div>
+                <div class="logo-card">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/97cfb5a427e93cc07d1641ca40d22c27?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T150702Z&X-Amz-Expires=3600&X-Amz-Signature=6c6bedb558288ec4b4afe1019128a250ccad78c8eab98de2513c8a6ec6adc9a7&X-Amz-SignedHeaders=host" alt="Premium Badge Logo">
+                    <h3>Premium Badge</h3>
+                    <p>Classic wine label style</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-props">
+        <div class="container">
+            <h2>Why MemVino?</h2>
+            <div class="props-grid">
+                <div class="prop-card">
+                    <div class="prop-icon">📸</div>
+                    <h3>Preserve Stories</h3>
+                    <p>Preserve the story behind every special bottle with photos, videos, and notes</p>
+                </div>
+                <div class="prop-card">
+                    <div class="prop-icon">✨</div>
+                    <h3>Elegant Design</h3>
+                    <p>Elegant design that transforms ordinary corks into displayable memory pieces</p>
+                </div>
+                <div class="prop-card">
+                    <div class="prop-icon">🔗</div>
+                    <h3>Wine Integration</h3>
+                    <p>Seamlessly integrates with Vivino and CellarTracker for wine enthusiasts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pin & Personalize</h3>
+                    <p>Insert your MemVino thumbtack into any wine cork and create a digital memory through our free app—add photos, videos, tasting notes, and the story of the occasion.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Display & Discover</h3>
+                    <p>Showcase your cork collection in shadow boxes, frames, or decorative displays. Each cork becomes a beautiful conversation piece with hidden memories inside.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Scan & Relive</h3>
+                    <p>Simply scan the QR code anytime to instantly transport back to that anniversary dinner, wedding toast, or celebration. Share memories with friends and family effortlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audience">
+        <div class="container">
+            <h2>For Wine Lovers & Memory Makers</h2>
+            <p>MemVino is perfect for wine enthusiasts who appreciate the stories behind their favorite bottles, couples celebrating milestones, and anyone who believes memories deserve more than a photo buried in their camera roll. Whether you're commemorating your wedding day, a romantic anniversary, a milestone birthday, or a special dinner with friends, MemVino transforms fleeting moments into tangible keepsakes.</p>
+        </div>
+    </section>
+
+    <section id="restaurants" class="b2b">
+        <div class="container">
+            <div class="b2b-content">
+                <h2>For Restaurants & Wine Bars</h2>
+                <p>Elevate your guests' dining experience with MemVino. As experiential dining becomes essential to hospitality differentiation, offer patrons an unexpected keepsake that extends your brand beyond the meal. Guests capture their special evening, share on social media, and remember your restaurant every time they see their cork.</p>
+                <a href="#" class="cta-button b2b-cta">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Choose Your Bundle</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$24.99</div>
+                    <ul>
+                        <li>5 MemVino thumbtacks</li>
+                        <li>Free app access</li>
+                        <li>Up to 15 memories</li>
+                        <li>Vivino integration</li>
+                    </ul>
+                    <a href="#" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Collector</h3>
+                    <div class="price">$59.99</div>
+                    <ul>
+                        <li>15 MemVino thumbtacks</li>
+                        <li>Free app access</li>
+                        <li>Up to 15 memories</li>
+                        <li>Premium support</li>
+                    </ul>
+                    <a href="#" class="cta-button">Buy Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Wedding Pack</h3>
+                    <div class="price">Custom</div>
+                    <ul>
+                        <li>25-500+ units</li>
+                        <li>Personalization options</li>
+                        <li>Bulk pricing</li>
+                        <li>Event coordination</li>
+                    </ul>
+                    <a href="#" class="cta-button">Contact Us</a>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: var(--charcoal);">
+                <strong>Premium Subscription:</strong> $4.99/month for unlimited memory storage after 15 memories
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MemVino. Transforming wine memories into lasting stories.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Demo Website | Concept in Development</p>
+        </div>
+    </footer>
+</body>
+</html>
