@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MemVino - Transform Wine Memories Into Stories Worth Keeping</title>
-    <meta name="description" content="MemVino turns wine corks into interactive keepsakes. Scan QR codes to relive the moments behind every bottle.">
+    <title>VinoVerse - Your Universe of Wine Moments</title>
+    <meta name="description" content="VinoVerse turns wine corks into interactive keepsakes. Scan QR codes to relive wine moments.">
     <style>
         * {
             margin: 0;
@@ -14,9 +14,10 @@
 
         :root {
             --burgundy: #6B1F3A;
+            --purple: #6B2D5C;
             --gold: #D4AF37;
             --cream: #FFF8F0;
-            --sage: #8FA18D;
+            --plum: #8B4789;
             --charcoal: #2B2B2B;
         }
 
@@ -52,7 +53,10 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--burgundy);
+            background: linear-gradient(135deg, var(--purple) 0%, var(--plum) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -69,11 +73,11 @@
         }
 
         .nav-links a:hover {
-            color: var(--burgundy);
+            color: var(--purple);
         }
 
         .cta-button {
-            background: var(--burgundy);
+            background: linear-gradient(135deg, var(--purple) 0%, var(--plum) 100%);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 30px;
@@ -85,12 +89,12 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(107, 31, 58, 0.3);
+            box-shadow: 0 5px 15px rgba(107, 45, 92, 0.3);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--burgundy) 0%, #8B3556 100%);
+            background: linear-gradient(135deg, var(--purple) 0%, var(--plum) 100%);
             color: white;
             padding: 6rem 0;
             text-align: center;
@@ -102,13 +106,20 @@
             line-height: 1.2;
         }
 
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 2.5rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
         .hero-cta {
@@ -126,7 +137,7 @@
 
         .logo-section h2 {
             font-size: 1.5rem;
-            color: var(--burgundy);
+            color: var(--purple);
             margin-bottom: 2rem;
         }
 
@@ -151,7 +162,7 @@
         }
 
         .logo-card h3 {
-            color: var(--burgundy);
+            color: var(--purple);
             margin-bottom: 0.5rem;
         }
 
@@ -164,7 +175,7 @@
         .value-props h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--burgundy);
+            color: var(--purple);
             margin-bottom: 3rem;
         }
 
@@ -200,7 +211,7 @@
         .how-it-works h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--burgundy);
+            color: var(--purple);
             margin-bottom: 3rem;
         }
 
@@ -219,7 +230,7 @@
         .step-number {
             width: 60px;
             height: 60px;
-            background: var(--burgundy);
+            background: var(--purple);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -231,21 +242,57 @@
         }
 
         .step h3 {
-            color: var(--burgundy);
+            color: var(--purple);
             margin-bottom: 1rem;
             font-size: 1.5rem;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--plum) 0%, var(--purple) 100%);
+            color: white;
+        }
+
+        .product-showcase h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            margin-bottom: 0.5rem;
         }
 
         /* Target Audience */
         .audience {
             padding: 4rem 0;
-            background: linear-gradient(135deg, var(--sage) 0%, #A4B8A3 100%);
-            color: white;
+            background: var(--cream);
             text-align: center;
         }
 
         .audience h2 {
             font-size: 2.5rem;
+            color: var(--purple);
             margin-bottom: 2rem;
         }
 
@@ -259,7 +306,7 @@
         /* B2B Section */
         .b2b {
             padding: 4rem 0;
-            background: var(--burgundy);
+            background: var(--purple);
             color: white;
         }
 
@@ -283,7 +330,7 @@
 
         .b2b-cta {
             background: white;
-            color: var(--burgundy);
+            color: var(--purple);
             font-size: 1.1rem;
         }
 
@@ -296,7 +343,7 @@
         .pricing h2 {
             text-align: center;
             font-size: 2.5rem;
-            color: var(--burgundy);
+            color: var(--purple);
             margin-bottom: 3rem;
         }
 
@@ -317,7 +364,7 @@
         }
 
         .pricing-card h3 {
-            color: var(--burgundy);
+            color: var(--purple);
             font-size: 1.8rem;
             margin-bottom: 1rem;
         }
@@ -357,15 +404,19 @@
                 font-size: 2rem;
             }
 
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .nav-links {
                 display: none;
             }
 
-            .steps, .props-grid, .pricing-grid {
+            .steps, .props-grid, .pricing-grid, .product-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -374,7 +425,7 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">MemVino</div>
+            <div class="logo">VinoVerse</div>
             <ul class="nav-links">
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
@@ -386,9 +437,10 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Transform Every Wine Memory Into a Story Worth Keeping</h1>
-            <p>MemVino turns wine corks into interactive keepsakes. Scan, relive, and share the moments behind every bottle with our elegant QR-enabled thumbtacks.</p>
-            <a href="#pricing" class="cta-button hero-cta">Start Preserving Your Wine Memories Today</a>
+            <h1>Your Universe of Wine Moments</h1>
+            <p class="tagline">Transform Every Cork Into a Constellation of Memories</p>
+            <p>VinoVerse turns wine corks into interactive keepsakes. Scan, relive, and share the moments behind every bottle with our elegant QR-enabled thumbtacks.</p>
+            <a href="#pricing" class="cta-button hero-cta">Start Creating Your Wine Universe</a>
         </div>
     </section>
 
@@ -397,19 +449,19 @@
             <h2>Brand Identity Concepts</h2>
             <div class="logo-grid">
                 <div class="logo-card">
-                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/749e57dcd06c1ab37cbce4536144d649?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T150702Z&X-Amz-Expires=3600&X-Amz-Signature=8ee82492d706aa1ac8b9642fcbd64d27c499f4f74b21326177557d63443cf4ab&X-Amz-SignedHeaders=host" alt="Classic Elegant Logo">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/9a288f3e2123aaff382d101d589614e3?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260219%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260219T225349Z&X-Amz-Expires=3600&X-Amz-Signature=3f2f44154dab838985982ca585f98ab7b2ebf64f05cc81308c1cf61e3d22e3df&X-Amz-SignedHeaders=host" alt="VinoVerse Classic Logo">
                     <h3>Classic Elegant</h3>
-                    <p>Sophisticated wine aesthetic</p>
+                    <p>Cosmic wine sophistication</p>
                 </div>
                 <div class="logo-card">
-                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/5188f86fc21d3900339f1d810cd9a3ac?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T150701Z&X-Amz-Expires=3600&X-Amz-Signature=f426267be3a5a09bf59e7046dd3cb0179a878fb63b1ea1c09fc04991266b238d&X-Amz-SignedHeaders=host" alt="Modern Playful Logo">
-                    <h3>Modern Playful</h3>
-                    <p>Approachable lifestyle brand</p>
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/a17a5b8949293b80d23bacc8616d811c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260219%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260219T225350Z&X-Amz-Expires=3600&X-Amz-Signature=428b7bacf623ae6245ec646a7a88d2646b8a3d0259b0ba1b0fd71491c477f8dc&X-Amz-SignedHeaders=host" alt="VinoVerse Modern Logo">
+                    <h3>Modern Universe</h3>
+                    <p>Contemporary constellation style</p>
                 </div>
                 <div class="logo-card">
-                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/97cfb5a427e93cc07d1641ca40d22c27?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T150702Z&X-Amz-Expires=3600&X-Amz-Signature=6c6bedb558288ec4b4afe1019128a250ccad78c8eab98de2513c8a6ec6adc9a7&X-Amz-SignedHeaders=host" alt="Premium Badge Logo">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/d59a615a48ea4916b9dea0dc67b3285f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260219%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260219T225350Z&X-Amz-Expires=3600&X-Amz-Signature=6fc0b2aae8d07f80df5b07ea24e94a6bb5ef6e70c8fadd200d79d0fee4d19133&X-Amz-SignedHeaders=host" alt="VinoVerse Badge Logo">
                     <h3>Premium Badge</h3>
-                    <p>Classic wine label style</p>
+                    <p>Stellar wine label aesthetic</p>
                 </div>
             </div>
         </div>
@@ -417,22 +469,22 @@
 
     <section class="value-props">
         <div class="container">
-            <h2>Why MemVino?</h2>
+            <h2>Why VinoVerse?</h2>
             <div class="props-grid">
                 <div class="prop-card">
-                    <div class="prop-icon">📸</div>
-                    <h3>Preserve Stories</h3>
-                    <p>Preserve the story behind every special bottle with photos, videos, and notes</p>
+                    <div class="prop-icon">🌌</div>
+                    <h3>Universe of Memories</h3>
+                    <p>Create your personal constellation of wine moments - each cork a star in your story</p>
                 </div>
                 <div class="prop-card">
                     <div class="prop-icon">✨</div>
                     <h3>Elegant Design</h3>
-                    <p>Elegant design that transforms ordinary corks into displayable memory pieces</p>
+                    <p>Transform ordinary corks into displayable memory pieces with premium QR thumbtacks</p>
                 </div>
                 <div class="prop-card">
                     <div class="prop-icon">🔗</div>
-                    <h3>Wine Integration</h3>
-                    <p>Seamlessly integrates with Vivino and CellarTracker for wine enthusiasts</p>
+                    <h3>Seamless Integration</h3>
+                    <p>Connects with Vivino and CellarTracker for complete wine tracking experience</p>
                 </div>
             </div>
         </div>
@@ -444,18 +496,46 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Pin & Personalize</h3>
-                    <p>Insert your MemVino thumbtack into any wine cork and create a digital memory through our free app—add photos, videos, tasting notes, and the story of the occasion.</p>
+                    <h3>Pin & Capture</h3>
+                    <p>Insert your VinoVerse thumbtack into the cork and capture photos, videos, tasting notes, and the story of your special moment through our free app.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Display & Discover</h3>
-                    <p>Showcase your cork collection in shadow boxes, frames, or decorative displays. Each cork becomes a beautiful conversation piece with hidden memories inside.</p>
+                    <h3>Display & Curate</h3>
+                    <p>Showcase your cork collection in shadow boxes or displays. Each cork becomes a portal to a cherished memory in your wine universe.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Scan & Relive</h3>
-                    <p>Simply scan the QR code anytime to instantly transport back to that anniversary dinner, wedding toast, or celebration. Share memories with friends and family effortlessly.</p>
+                    <p>Scan the QR code anytime to instantly revisit that anniversary dinner, wedding toast, or celebration. Share memories effortlessly with friends and family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-showcase">
+        <div class="container">
+            <h2>Experience VinoVerse</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/706dfccf7cfcb07ed9894b3b9944f4f4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T161635Z&X-Amz-Expires=3600&X-Amz-Signature=60267b4720497c1ca5d600e600f004a827c95b73b8531a6ce9be4132bca64cca&X-Amz-SignedHeaders=host" alt="VinoVerse Product">
+                    <h3>Premium Quality</h3>
+                    <p>Elegant design meets functionality</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/f3b8eb4954c0cb3d8279d16706d892a6?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T161636Z&X-Amz-Expires=3600&X-Amz-Signature=cdd9b260a3a1de457f5659b0d0053570996bfeb1047dbca58b6431ba8e87d7c3&X-Amz-SignedHeaders=host" alt="Restaurant Experience">
+                    <h3>Fine Dining</h3>
+                    <p>Elevate memorable wine moments</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/e8accd627898eae25edfe692ab04244b?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T161636Z&X-Amz-Expires=3600&X-Amz-Signature=6e7e700b8ae11d12d9614651033074338c51162aef09de6498067058cb6caee9&X-Amz-SignedHeaders=host" alt="Wedding Favors">
+                    <h3>Special Occasions</h3>
+                    <p>Perfect for weddings & celebrations</p>
+                </div>
+                <div class="product-card">
+                    <img src="https://temp.4d4f16c61d89ec64e760039c4ec50717.r2.cloudflarestorage.com/227827/dynamic-module-load/GENERATE_IMAGE/response/12c3a3896dd6ded12c2dbc25c9a1a34f?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e22d99e14b94fe5f16acc83614a762b5%2F20260209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260209T161636Z&X-Amz-Expires=3600&X-Amz-Signature=fd7569620efd08b6a8fbf2fcff4df24c10d5ec7d568d29a5143fc4e3be3d6b70&X-Amz-SignedHeaders=host" alt="Home Display">
+                    <h3>Display Your Universe</h3>
+                    <p>Beautiful home keepsakes</p>
                 </div>
             </div>
         </div>
@@ -464,7 +544,7 @@
     <section class="audience">
         <div class="container">
             <h2>For Wine Lovers & Memory Makers</h2>
-            <p>MemVino is perfect for wine enthusiasts who appreciate the stories behind their favorite bottles, couples celebrating milestones, and anyone who believes memories deserve more than a photo buried in their camera roll. Whether you're commemorating your wedding day, a romantic anniversary, a milestone birthday, or a special dinner with friends, MemVino transforms fleeting moments into tangible keepsakes.</p>
+            <p>VinoVerse is perfect for wine enthusiasts who appreciate the stories behind their favorite bottles, couples celebrating milestones, and anyone who believes memories deserve more than a photo buried in their camera roll. Create your universe of wine moments - from wedding toasts to anniversary dinners, milestone birthdays to intimate celebrations with friends.</p>
         </div>
     </section>
 
@@ -472,7 +552,7 @@
         <div class="container">
             <div class="b2b-content">
                 <h2>For Restaurants & Wine Bars</h2>
-                <p>Elevate your guests' dining experience with MemVino. As experiential dining becomes essential to hospitality differentiation, offer patrons an unexpected keepsake that extends your brand beyond the meal. Guests capture their special evening, share on social media, and remember your restaurant every time they see their cork.</p>
+                <p>Elevate your guests' dining experience with VinoVerse. As experiential dining becomes essential to hospitality differentiation, offer patrons an unexpected keepsake that extends your brand beyond the meal. Guests capture their special evening, share on social media, and remember your restaurant every time they see their cork. Turn memorable meals into lasting brand ambassadors.</p>
                 <a href="#" class="cta-button b2b-cta">Partner With Us</a>
             </div>
         </div>
@@ -480,13 +560,13 @@
 
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2>Choose Your Bundle</h2>
+            <h2>Choose Your Universe</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Starter</h3>
                     <div class="price">$24.99</div>
                     <ul>
-                        <li>5 MemVino thumbtacks</li>
+                        <li>5 VinoVerse thumbtacks</li>
                         <li>Free app access</li>
                         <li>Up to 15 memories</li>
                         <li>Vivino integration</li>
@@ -497,7 +577,7 @@
                     <h3>Collector</h3>
                     <div class="price">$59.99</div>
                     <ul>
-                        <li>15 MemVino thumbtacks</li>
+                        <li>15 VinoVerse thumbtacks</li>
                         <li>Free app access</li>
                         <li>Up to 15 memories</li>
                         <li>Premium support</li>
@@ -505,7 +585,7 @@
                     <a href="#" class="cta-button">Buy Now</a>
                 </div>
                 <div class="pricing-card">
-                    <h3>Wedding Pack</h3>
+                    <h3>Universe Pack</h3>
                     <div class="price">Custom</div>
                     <ul>
                         <li>25-500+ units</li>
@@ -524,7 +604,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 MemVino. Transforming wine memories into lasting stories.</p>
+            <p>&copy; 2026 VinoVerse. Your universe of wine moments.</p>
             <p style="margin-top: 1rem; font-size: 0.9rem;">Demo Website | Concept in Development</p>
         </div>
     </footer>
